@@ -1,5 +1,4 @@
-# wechat-calendar
-微信小程序日历组件 - wechat mini program calendar
+# 微信小程序日历插件
 
 ## 引入插件
 ### json
@@ -23,7 +22,7 @@ wxml
 |changeTime||eventhandle||false||否||点击选择日期事件，回调函数|
 |changeCalendar||eventhandle||false||否||点击切换月份，回调函数|
 
-![链接](../doc/1.png)![链接](./doc/2.png)![链接](./doc/3.png)
+![链接](./1.png)![链接](./2.png)![链接](./3.png)
 
 使用编辑器下方的上传按钮可以上传插件文档，上传的内容包括 doc 目录下的 README.md 和图片。
 

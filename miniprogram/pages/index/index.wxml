@@ -1,0 +1,3 @@
+<zf-lalendar 
+  disableOld="false"
+  data="{{list}}"/>

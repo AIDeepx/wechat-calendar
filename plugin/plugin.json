@@ -1,0 +1,6 @@
+{
+  "publicComponents": {
+    "zf-lalendar": "components/zf-lalendar/zf-lalendar"
+  },
+  "main": "index.js"
+}

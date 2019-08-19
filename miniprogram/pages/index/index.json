@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "zf-lalendar": "plugin://myPlugin/zf-lalendar"
+  }
+}

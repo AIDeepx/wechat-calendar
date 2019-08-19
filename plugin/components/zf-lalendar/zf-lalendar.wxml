@@ -1,0 +1,79 @@
+<view class="calendar">
+  <!-- 日历控件头 -->
+  <view class="calendar-header">
+    <!-- 日历控件操作按钮 -->
+    <view class="calendar-inner">
+      <view class="calendar-header-l"  bindtap="changeCalendar" data-handle="pre">
+        <text class="iconfont iconzuo" decode="true"></text>
+      </view>
+      <view class="calendar-header-t" bindtap='monthCtrl'>{{curTitle}}</view>
+      <view class="calendar-header-r" bindtap="changeCalendar" data-handle="neg">
+        <text class="iconfont iconxiayibu2" decode="true"></text>
+      </view>
+    </view>
+    <!-- 日历控件周 -->
+    <view class="calendar-inner calendar-mounth-title" wx:if="{{!monthCtrl}}">
+      <view wx:for="{{mounthTitle}}" wx:key="{{index}}">{{item}}</view>
+    </view>
+  </view>
+
+  <!-- 日历控件日期 -->
+  <view class="calendar-content" 
+        wx:if="{{!monthCtrl}}"
+        animation="{{dateAnimate}}" 
+        style="width: {{dateWidth}}; transform: translateX({{dateLen_1}}px);">
+    <view class="calendar-inner" wx:for="{{curDays}}" wx:key="{{item}}" wx:for-item="i">
+      <view class="calendar-content-item {{(curDay==item.dateStr && !item.disable)?'calendar-content-item-active':''}} {{item.disable?'calendar-content-disable':''}}" 
+            wx:for="{{i}}" 
+            wx:key="{{item}}"
+            bindtap="{{item.disable?'':'setDate'}}" 
+            data-date="{{item.dateStr}}"
+            animation="{{(curDay==item.dateStr && !item.disable)?dayAnimate:''}}">
+        {{item.date}}
+        <b class="{{item.desc=='可预约'?'calendar-content-item-desc':'calendar-content-item-desc-full'}}">{{curDay==item.dateStr?'.':item.desc}}</b>
+      </view>
+    </view>
+  </view><!--calendar-content-->
+  
+  <view class="calendar-content_amn" 
+        animation="{{dateAnimate2}}" 
+        wx:if="{{!monthCtrl}}"
+        style="width: {{dateWidth}}; transform: translateX({{dateLen_2}}px);">
+    <view class="calendar-inner" wx:for="{{curDays}}" wx:key="{{item}}" wx:for-item="i">
+      <view class="calendar-content-item {{(curDay==item.date && !item.disable)?'calendar-content-item-active':''}} {{item.disable?'calendar-content-disable':''}}" 
+            wx:for="{{i}}" 
+            wx:key="{{item}}" 
+            bindtap="{{item.disable?'':'setDate'}}" 
+            data-date="{{item.dateStr}}"
+            animation="{{(curDay==item.dateStr && !item.disable)?dayAnimate:''}}">
+        {{item.date}}
+        <b class="{{item.desc=='可预约'?'calendar-content-item-desc':'calendar-content-item-desc-full'}}">{{curDay==item.dateStr?'.':item.desc}}</b>
+      </view>
+    </view>
+  </view><!--calendar-content-->
+
+  <!-- 日历控件月份 -->
+<view class="calendar-content calendar-content-month" wx:if="{{monthCtrl}}">
+  <view class="calendar-inner">
+    <view class="calendar-content-item" bindtap='jumpMonth' data-month="01">一月</view>
+    <view class="calendar-content-item" bindtap='jumpMonth' data-month="02">二月</view>
+    <view class="calendar-content-item" bindtap='jumpMonth' data-month="03">三月</view>
+    <view class="calendar-content-item" bindtap='jumpMonth' data-month="04">四月</view>
+  </view>
+  <view class="calendar-inner">
+    <view class="calendar-content-item" bindtap='jumpMonth' data-month="05">五月</view>
+    <view class="calendar-content-item" bindtap='jumpMonth' data-month="06">六月</view>
+    <view class="calendar-content-item" bindtap='jumpMonth' data-month="07">七月</view>
+    <view class="calendar-content-item" bindtap='jumpMonth' data-month="08">八月</view>
+  </view>
+  <view class="calendar-inner">
+    <view class="calendar-content-item" bindtap='jumpMonth' data-month="09">九月</view>
+    <view class="calendar-content-item" bindtap='jumpMonth' data-month="10">十月</view>
+    <view class="calendar-content-item" bindtap='jumpMonth' data-month="11">十一月</view>
+    <view class="calendar-content-item" bindtap='jumpMonth' data-month="12">十二月</view>
+  </view>
+</view>
+
+</view>
+
+
